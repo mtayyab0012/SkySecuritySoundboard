@@ -11,9 +11,10 @@ body {
     background: #ffffff;
     padding: 15px;
     border-radius: 15px;
-    box-shadow: 0 0 10px rgba(0,0,0,0.15);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.15);
 }
 
+/* STOP button */
 .stop-btn {
     background: #1f4b6e;
     color: #ffffff;
@@ -22,15 +23,21 @@ body {
     text-align: center;
     font-weight: bold;
     cursor: pointer;
-    margin-bottom: 10px;
 }
 
+/* press effect */
+.stop-btn:active {
+    transform: scale(0.95);
+}
+
+/* grid */
 .grid {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     gap: 6px;
 }
 
+/* normal buttons */
 button {
     border: none;
     border-radius: 6px;
@@ -40,13 +47,15 @@ button {
     cursor: pointer;
 }
 
+/* press effect */
 button:active {
     transform: scale(0.95);
 }
 
-/* Colors */
-.green { background: #28a745; }
+/* colors */
+.green  { background: #28a745; }
 .yellow { background: #ffe600; }
 .orange { background: #ff8c00; }
-.blue { background: #2ecbff; }
-.red { background: #e53935; color: white; }
+.blue   { background: #2ecbff; }
+.red    { background: #e53935; color: #ffffff; }
+
