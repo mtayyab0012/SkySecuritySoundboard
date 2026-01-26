@@ -1,33 +1,33 @@
 let currentAudio = null;
 let currentSound = null;
 
-// Attach click event to all sound buttons
-document.querySelectorAll(".sound-btn").forEach(button => {
-    button.addEventListener("click", () => {
-        const soundName = button.getAttribute("data-sound");
-        playSound(soundName);
-    });
-});
-
+// Play sound
 function playSound(soundName) {
-    // If the same sound is already playing, do nothing
-    if (currentAudio && currentSound === soundName && !currentAudio.paused) {
+
+    // If same sound is already playing → do nothing
+    if (
+        currentAudio &&
+        currentSound === soundName &&
+        !currentAudio.paused
+    ) {
         return;
     }
 
-    // Stop currently playing sound (if different)
+    // Stop current sound
     if (currentAudio) {
         currentAudio.pause();
         currentAudio.currentTime = 0;
     }
 
-    // Play new sound
-    currentAudio = new Audio(`sounds/${soundName}.mp3`);
+    // Create & play new sound
+    currentAudio = new Audio("sounds/" + soundName + ".mp3");
     currentSound = soundName;
 
-    currentAudio.play();
+    currentAudio.play().catch(err => {
+        console.log("Audio error:", err);
+    });
 
-    // When sound ends, reset state
+    // Reset when finished
     currentAudio.onended = () => {
         currentAudio = null;
         currentSound = null;
